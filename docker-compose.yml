@@ -1,0 +1,42 @@
+services:
+
+    php:
+        user: "${UID}:${GID}"
+        working_dir: /app
+        build:
+            context: .
+            dockerfile: frankenphp.Dockerfile
+        ports:
+            - "80:8080"
+        volumes:
+            - .:/app
+        depends_on:
+            - redis
+            - mariadb
+
+    mariadb:
+        image: mariadb:10.4.13
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: laravel
+
+    redis:
+        image: redis
+        ports:
+            - "6379:6379"
+
+    horizon:
+        build:
+            context: .
+            dockerfile: serversideup.Dockerfile
+            args:
+                - USER_ID=501
+                - GROUP_ID=20
+            target: development
+        ports:
+            - "8082:8080"
+        volumes:
+            - .:/var/www/html
+        command: [ "php", "artisan", "horizon" ]
