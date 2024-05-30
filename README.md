@@ -1,4 +1,4 @@
-# Laravel + FrankenPHP Development Environment
+# Laravel 11 + FrankenPHP Development Environment
 
 This project provides a development environment for Laravel using FrankenPHP. The environment is dockerized for easy setup and tear down.
 
