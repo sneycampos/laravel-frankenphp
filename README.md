@@ -2,6 +2,11 @@
 
 This project provides a development environment for Laravel using FrankenPHP. The environment is dockerized for easy setup and tear down.
 
+## Features
+- FrankenPHP 1.9
+- PHP 8.2
+- Laravel 11
+
 ## Prerequisites
 
 - [Docker](https://docs.docker.com/get-docker/)
@@ -9,17 +14,18 @@ This project provides a development environment for Laravel using FrankenPHP. Th
 
 ## Services
 
-The Docker Compose configuration includes the following services:
-
-- `php`: The main PHP service, using the FrankenPHP image. This service runs the PHP application.
-- `mariadb`: The MariaDB service, used as the database for the application.
-- `redis`: The Redis service, used for caching and session storage.
-- `horizon`: The Laravel Horizon service, used for managing Laravel queues.
+The Docker Compose configuration includes the php service running using FrankenPHP
 
 ## Usage
 
-Once the Docker containers are up and running, you can access the Laravel application at [http://localhost:80](http://localhost:80).
+Once the Docker container are up and running, you can access the Laravel application at [http://localhost](http://localhost).
 
-## Debugging
+## PHP Info
+You can access the PHP information page at [http://localhost/phpinfo.php](http://localhost/phpinfo.php).
 
-Xdebug is configured in the FrankenPHP service. You can start a debugging session by setting a breakpoint in your code and making a request to the application.
+[//]: # (## Debugging)
+
+[//]: # ()
+[//]: # (Xdebug is configured in the FrankenPHP service. You can start a debugging session by setting a breakpoint in your code and making a request to the application.)
+
+[//]: # (``)
